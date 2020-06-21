@@ -28,10 +28,7 @@ dependencies {
 
 // https://mvnrepository.com/artifact/mysql/mysql-connector-java
 	//compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.19'
-// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa
-// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-tomcat
-// https://mvnrepository.com/artifact/org.postgresql/postgresql
-	compile group: 'org.postgresql', name: 'postgresql', version: '42.2.11'
+	compile group: 'org.postgresql', name: 'postgresql', version: '42.2.13.jre7'
 
 	//providedRuntime ("org.springframework.boot:spring-boot-starter-tomcat")
 
