@@ -1,3 +1,4 @@
+
 package com.crud.tasks.controller;
 
 import com.crud.tasks.domain.Task;
@@ -7,10 +8,11 @@ import com.crud.tasks.service.DbServise;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
-import java.util.ArrayList;
+
 import java.util.List;
-import java.util.Optional;
+@CrossOrigin(origins = "*")
 
 @RestController
 @RequestMapping("/v1/task")
@@ -45,5 +47,7 @@ public class TaskController {
     public void createTask(@RequestBody TaskDto taskDto){
         service.saveTask(taskMapper.mapToTask(taskDto));
 
+
     }
  }
+
