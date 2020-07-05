@@ -18,27 +18,28 @@ public class TrelloController {
     private TrelloClient trelloClient;
 
     @RequestMapping(method = RequestMethod.GET, value = "getTrelloBoards")
-    public void getTrelloBoards() throws TaskNotFoundException {
+    public List<TrelloBoardDto> getTrelloBoards() {
 
-    List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
-
-    trelloBoards.stream()
-                .filter(p -> p.getName().contains("Kodilla"))
-                .forEach(trelloBoardDto -> {
-                    System.out.println(trelloBoardDto.getId() + " " + trelloBoardDto.getName());
-
-                    System.out.println("This board contains lists: ");
-
-                    trelloBoardDto.getLists().forEach(trelloList -> {
-                        System.out.println(trelloList.getName() + " " + trelloList.getId()
-                        + " " + trelloList.isClosed());
-                    });
-                });
+        return trelloClient.getTrelloBoards();
     }
 
+//    List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
+//    trelloBoards.stream()
+//                .filter(p -> p.getName().contains("Kodilla"))
+//                .forEach(trelloBoardDto -> {
+//                    System.out.println(trelloBoardDto.getId() + " " + trelloBoardDto.getName());
+//
+//                    System.out.println("This board contains lists: ");
+//
+//                    trelloBoardDto.getLists().forEach(trelloList -> {
+//                        System.out.println(trelloList.getName() + " " + trelloList.getId()
+//                        + " " + trelloList.isClosed());
+//                    });
+//                });
+//    }
+//
     @PostMapping(value = "createTrelloCard")
-    public CreatedTrelloCard createdTrelloCard(@RequestBody TrelloCardDto trelloCardDto) {
-        return trelloClient.createdCard(trelloCardDto);
+    public CreatedTrelloCard createTrelloCard (@RequestBody TrelloCardDto trelloCardDto) {
+        return trelloClient.createCard(trelloCardDto);
     }
-
 }
