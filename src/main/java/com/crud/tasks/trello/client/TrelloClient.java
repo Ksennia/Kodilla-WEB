@@ -15,6 +15,7 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import javax.validation.constraints.NotNull;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -37,6 +38,7 @@ public class TrelloClient {
     private RestTemplate restTemplate;
 
     //GET/1/members/{id}/boards
+
     private URI getUrl() {
         return   UriComponentsBuilder.fromHttpUrl(trelloConfig.getTrelloApiEndPoint() + "/members/" + trelloConfig.getTrelloMember() + "/boards")
                 .queryParam("key", trelloConfig.getTrelloApiKey())
@@ -53,8 +55,6 @@ public class TrelloClient {
         try {
         TrelloBoardDto[] boardResponse = restTemplate.getForObject(getUrl().toString(),
                 TrelloBoardDto[].class);
-
-
         return Arrays.asList(ofNullable(boardResponse).orElse(new TrelloBoardDto[0]));}
         catch (RestClientException e) {
             LOGGER.error(e.getMessage(), e);
