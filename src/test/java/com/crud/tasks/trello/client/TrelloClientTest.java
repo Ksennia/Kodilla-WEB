@@ -1,11 +1,11 @@
 package com.crud.tasks.trello.client;
 
-import com.crud.tasks.domain.TrelloCardDto;
-import com.crud.tasks.domain.cardTrello.TrelloBadgesDto;
-import com.crud.tasks.domain.mapper.CreatedTrelloCard;
-import org.junit.Before;
-import com.crud.tasks.domain.TrelloBoardDto;
-import com.crud.tasks.trello.config.TrelloConfig;
+import com.crud.trello.client.TrelloClient;
+import com.crud.trello.config.TrelloConfig;
+import com.crud.trello.domain.CreatedTrelloCardDto;
+import com.crud.trello.domain.TrelloBoardDto;
+import com.crud.trello.domain.cardTrello.TrelloBadgesDto;
+import com.crud.trello.validator.TrelloCardDto;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,12 +21,10 @@ import org.springframework.web.client.RestTemplate;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -91,17 +89,17 @@ class  TrelloClientTest {
         );
         URI uri = new URI("http://test.com/cards?key=test&token=test&name=Test%20task&desc=Test%20Description&pos=top&idList=test_id");
 
-        CreatedTrelloCard createdTrelloCard = new CreatedTrelloCard(
+        CreatedTrelloCardDto createdTrelloCard = new CreatedTrelloCardDto(
                 "1",
                 "Test task",
                 "http://test.com",
                 new TrelloBadgesDto()
         );
 
-        when(restTemplate.postForObject(uri, null, CreatedTrelloCard.class)).thenReturn(createdTrelloCard);
+        when(restTemplate.postForObject(uri, null, CreatedTrelloCardDto.class)).thenReturn(createdTrelloCard);
 
         //When
-        CreatedTrelloCard newCard = trelloClient.createCard(trelloCardDto);
+        CreatedTrelloCardDto newCard = trelloClient.createCard(trelloCardDto);
 
         //Then
         Assert.assertEquals(createdTrelloCard.getId(), newCard.getId());

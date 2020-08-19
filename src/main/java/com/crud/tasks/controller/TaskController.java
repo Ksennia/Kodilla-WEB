@@ -2,7 +2,7 @@
 package com.crud.tasks.controller;
 
 import com.crud.tasks.domain.TaskDto;
-import com.crud.tasks.domain.mapper.TaskMapper;
+import com.crud.tasks.mapper.TaskMapper;
 import com.crud.tasks.service.DbServise;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

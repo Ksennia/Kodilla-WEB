@@ -1,4 +1,4 @@
-package com.crud.tasks.domain.cardTrello;
+package com.crud.trello.domain.cardTrello;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

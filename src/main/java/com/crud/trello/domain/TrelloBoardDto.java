@@ -1,4 +1,4 @@
-package com.crud.tasks.domain.cardTrello;
+package com.crud.trello.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -6,15 +6,20 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class TrelloBadgesDto {
+public class TrelloBoardDto {
 
-    @JsonProperty("votes")
-    private int votes;
+    @JsonProperty("id")
+    private String id;
 
-    @JsonProperty("attachmentsByType")
-    private TrelloAttachmentByTypeDto attachments;
+    @JsonProperty("name")
+    private String name;
+
+    @JsonProperty("lists")
+    private List<TrelloListDto> lists;
 }
