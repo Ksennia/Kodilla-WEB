@@ -1,15 +1,17 @@
 package com.crud.trello.facade;
 
-import com.crud.trello.domain.*;
-import com.crud.trello.mapper.TrelloMapper;
-import com.crud.trello.validator.TrelloCardDto;
+import com.crud.tasks.trello.domain.*;
+import com.crud.tasks.trello.mapper.TrelloMapper;
+import com.crud.tasks.trello.validator.TrelloCardDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+@SpringBootTest
 public class TrelloFacadeTestSuite {
 
     @Autowired
@@ -22,7 +24,10 @@ public class TrelloFacadeTestSuite {
         //When
         TrelloCard trelloCardTest = trelloMapper.mapToCard(trelloCardDto);
         //Then
-        assertEquals(new TrelloCard("test", "test", "test", "test"), trelloCardTest);
+        assertEquals("test", trelloCardTest.getName());
+        assertEquals("test", trelloCardTest.getDescription());
+        assertEquals("test", trelloCardTest.getListId());
+        assertEquals("test", trelloCardTest.getPos());
     }
 
     @Test
@@ -30,9 +35,12 @@ public class TrelloFacadeTestSuite {
         //Given
         TrelloCard trelloCard = new TrelloCard("test", "test", "test", "test");
         //When
-        TrelloCardDto trelloCardTest = trelloMapper.mapToCardDto(trelloCard);
+        TrelloCardDto trelloCardDtoTest = trelloMapper.mapToCardDto(trelloCard);
         //Then
-        assertEquals(new TrelloCardDto("test", "test", "test", "test"), trelloCardTest);
+        assertEquals("test", trelloCardDtoTest.getName());
+        assertEquals("test", trelloCardDtoTest.getDescription());
+        assertEquals("test", trelloCardDtoTest.getListId());
+        assertEquals("test", trelloCardDtoTest.getPos());
 
     }
 

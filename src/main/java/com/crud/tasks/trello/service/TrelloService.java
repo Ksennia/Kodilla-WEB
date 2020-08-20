@@ -1,12 +1,12 @@
-package com.crud.trello.service;
+package com.crud.tasks.trello.service;
 
 import com.crud.tasks.config.AdminConfig;
 import com.crud.tasks.domain.Mail;
 import com.crud.tasks.service.SimpleEmailService;
-import com.crud.trello.domain.TrelloBoardDto;
-import com.crud.trello.validator.TrelloCardDto;
-import com.crud.trello.domain.CreatedTrelloCardDto;
-import com.crud.trello.client.TrelloClient;
+import com.crud.tasks.trello.client.TrelloClient;
+import com.crud.tasks.trello.domain.CreatedTrelloCardDto;
+import com.crud.tasks.trello.domain.TrelloBoardDto;
+import com.crud.tasks.trello.validator.TrelloCardDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

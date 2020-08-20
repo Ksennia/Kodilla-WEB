@@ -1,13 +1,13 @@
-package com.crud.trello.facade;
+package com.crud.tasks.trello.facade;
 
-import com.crud.trello.domain.TrelloBoardDto;
-import com.crud.trello.domain.TrelloCard;
-import com.crud.trello.validator.TrelloCardDto;
-import com.crud.trello.domain.CreatedTrelloCardDto;
-import com.crud.trello.domain.TrelloBoard;
-import com.crud.trello.mapper.TrelloMapper;
-import com.crud.trello.service.TrelloService;
-import com.crud.trello.validator.TrelloValidator;
+import com.crud.tasks.trello.domain.TrelloBoardDto;
+import com.crud.tasks.trello.domain.TrelloCard;
+import com.crud.tasks.trello.validator.TrelloCardDto;
+import com.crud.tasks.trello.domain.CreatedTrelloCardDto;
+import com.crud.tasks.trello.domain.TrelloBoard;
+import com.crud.tasks.trello.mapper.TrelloMapper;
+import com.crud.tasks.trello.service.TrelloService;
+import com.crud.tasks.trello.validator.TrelloValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

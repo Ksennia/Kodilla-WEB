@@ -1,11 +1,10 @@
 package com.crud.tasks.trello.client;
 
-import com.crud.trello.client.TrelloClient;
-import com.crud.trello.config.TrelloConfig;
-import com.crud.trello.domain.CreatedTrelloCardDto;
-import com.crud.trello.domain.TrelloBoardDto;
-import com.crud.trello.domain.cardTrello.TrelloBadgesDto;
-import com.crud.trello.validator.TrelloCardDto;
+import com.crud.tasks.trello.config.TrelloConfig;
+import com.crud.tasks.trello.domain.CreatedTrelloCardDto;
+import com.crud.tasks.trello.domain.TrelloBoardDto;
+import com.crud.tasks.trello.domain.cardTrello.TrelloBadgesDto;
+import com.crud.tasks.trello.validator.TrelloCardDto;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

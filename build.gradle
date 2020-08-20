@@ -1,7 +1,6 @@
 
 plugins {
 	id "org.springframework.boot" version "2.2.6.RELEASE"
-
 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 	id 'java'
 	id "io.freefair.lombok" version "5.1.0"
@@ -17,10 +16,11 @@ repositories {
 	mavenCentral()
 }
 //node {
-//    dowload = true
+//    download = true
 //}
 
 dependencies {
+	compile('org.springframework.boot:spring-boot-starter')
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 

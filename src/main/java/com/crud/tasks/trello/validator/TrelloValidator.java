@@ -1,7 +1,7 @@
-package com.crud.trello.validator;
+package com.crud.tasks.trello.validator;
 
-import com.crud.trello.domain.TrelloCard;
-import com.crud.trello.domain.TrelloBoard;
+import com.crud.tasks.trello.domain.TrelloBoard;
+import com.crud.tasks.trello.domain.TrelloCard;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;

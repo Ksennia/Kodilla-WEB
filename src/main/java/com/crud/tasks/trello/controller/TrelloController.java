@@ -1,9 +1,9 @@
-package com.crud.trello.controller;
+package com.crud.tasks.trello.controller;
 
-import com.crud.trello.domain.TrelloBoardDto;
-import com.crud.trello.facade.TrelloFacade;
-import com.crud.trello.validator.TrelloCardDto;
-import com.crud.trello.domain.CreatedTrelloCardDto;
+import com.crud.tasks.trello.domain.CreatedTrelloCardDto;
+import com.crud.tasks.trello.facade.TrelloFacade;
+import com.crud.tasks.trello.validator.TrelloCardDto;
+import com.crud.tasks.trello.domain.TrelloBoardDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

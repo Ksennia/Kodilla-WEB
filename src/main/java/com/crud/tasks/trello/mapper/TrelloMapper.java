@@ -1,11 +1,11 @@
-package com.crud.trello.mapper;
+package com.crud.tasks.trello.mapper;
 
-import com.crud.trello.domain.TrelloBoard;
-import com.crud.trello.domain.TrelloBoardDto;
-import com.crud.trello.domain.TrelloCard;
-import com.crud.trello.domain.TrelloList;
-import com.crud.trello.domain.TrelloListDto;
-import com.crud.trello.validator.TrelloCardDto;
+import com.crud.tasks.trello.domain.TrelloBoard;
+import com.crud.tasks.trello.domain.TrelloList;
+import com.crud.tasks.trello.domain.TrelloBoardDto;
+import com.crud.tasks.trello.domain.TrelloCard;
+import com.crud.tasks.trello.domain.TrelloListDto;
+import com.crud.tasks.trello.validator.TrelloCardDto;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
