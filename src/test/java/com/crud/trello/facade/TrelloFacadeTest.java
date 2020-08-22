@@ -8,14 +8,13 @@ import com.crud.tasks.trello.facade.TrelloFacade;
 import com.crud.tasks.trello.mapper.TrelloMapper;
 import com.crud.tasks.trello.service.TrelloService;
 import com.crud.tasks.trello.validator.TrelloValidator;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +25,6 @@ import static org.mockito.ArgumentMatchers.anyList;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
-@SpringBootTest
-@ExtendWith(SpringExtension.class)
 public class TrelloFacadeTest {
 
     @InjectMocks
@@ -42,25 +39,30 @@ public class TrelloFacadeTest {
     @Mock
     private TrelloMapper trelloMapper;
 
+    @BeforeEach
+    public void setUp() {
+        MockitoAnnotations.initMocks(this);
+    }
+
     @Test
     public void shouldFetchEmptyList() {
         //Given
-        List<TrelloListDto> trelloLists = new ArrayList<>();
+        List<TrelloListDto> trelloLists = new ArrayList<TrelloListDto>();
         trelloLists.add(new TrelloListDto("1", "test_list", false));
 
-        List<TrelloBoardDto> trelloBoards = new ArrayList<>();
+        List<TrelloBoardDto> trelloBoards = new ArrayList<TrelloBoardDto>();
         trelloBoards.add(new TrelloBoardDto("1", "test", trelloLists));
 
-        List<TrelloList> mappedTrelloLists = new ArrayList<>();
+        List<TrelloList> mappedTrelloLists = new ArrayList<TrelloList>();
         mappedTrelloLists.add(new TrelloList("1", "test_list", false));
 
-        List<TrelloBoard> mappedTrelloBoards = new ArrayList<>();
+        List<TrelloBoard> mappedTrelloBoards = new ArrayList<TrelloBoard>();
         mappedTrelloBoards.add(new TrelloBoard("1", "test", mappedTrelloLists));
 
         when(trelloService.fetchTrelloBoards()).thenReturn(trelloBoards);
         when(trelloMapper.mapToBoards(trelloBoards)).thenReturn(mappedTrelloBoards);
         when(trelloMapper.mapToBoardsDto(anyList())).thenReturn(new ArrayList<>());
-        when(trelloValidator.validateTrelloBOards(mappedTrelloBoards)).thenReturn(new ArrayList<>());
+        when(trelloValidator.validateTrelloBOards(mappedTrelloBoards)).thenReturn(new ArrayList<TrelloBoard>());
 
         //When
         List<TrelloBoardDto> trelloBoardDtos = trelloFacade.fetchTrelloBoads();
@@ -73,16 +75,16 @@ public class TrelloFacadeTest {
     @Test
     public void shouldFetchTrelloBoards() {
         //Given
-        List<TrelloListDto> trelloLists = new ArrayList<>();
+        List<TrelloListDto> trelloLists = new ArrayList<TrelloListDto>();
         trelloLists.add(new TrelloListDto("1", "my_list", false));
 
-        List<TrelloBoardDto> trelloBoards = new ArrayList<>();
+        List<TrelloBoardDto> trelloBoards = new ArrayList<TrelloBoardDto>();
         trelloBoards.add(new TrelloBoardDto("1", "my_task", trelloLists));
 
-        List<TrelloList> mappedTrelloLists = new ArrayList<>();
+        List<TrelloList> mappedTrelloLists = new ArrayList<TrelloList>();
         mappedTrelloLists.add(new TrelloList("1", "my_list", false));
 
-        List<TrelloBoard> mappedTrelloBoards = new ArrayList<>();
+        List<TrelloBoard> mappedTrelloBoards = new ArrayList<TrelloBoard>();
         mappedTrelloBoards.add(new TrelloBoard("1", "my_task", mappedTrelloLists));
 
         when(trelloService.fetchTrelloBoards()).thenReturn(trelloBoards);

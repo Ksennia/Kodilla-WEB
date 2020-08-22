@@ -39,10 +39,6 @@ class  TrelloClientTest {
     @Mock
     private TrelloConfig trelloConfig;
 
-//    @Before
-//    public void init() {
-//    }
-
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.initMocks(this);
