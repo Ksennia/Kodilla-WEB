@@ -7,6 +7,8 @@ import com.crud.tasks.schelduler.EmailScheduler;
 import com.crud.tasks.service.SimpleEmailService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -34,8 +36,8 @@ public class EmailSchedulerTestSuite {
     @Mock
     private Mail mail;
 
-    @Mock
-    private JavaMailSender mailSender;
+    @Captor
+    ArgumentCaptor<Mail> mailArgumentCaptor;
 
     @Test
     public void shouldEmailServiceSendCall() {
@@ -73,12 +75,16 @@ public class EmailSchedulerTestSuite {
     @Test
     public void shouldSentInformationEmailBeSend() {
         //Given
-        when(taskRepository.count()).thenReturn(1l);
-        when(adminConfig.getAdminMail()).thenReturn("mailadress");
+        Mail expectMail = new Mail("address", "Tasks: Once a day email", "Currently in database you got: 2 tasks");
+        when(taskRepository.count()).thenReturn(2L);
+        when(adminConfig.getAdminMail()).thenReturn("address");
+        doNothing().when(emailService).send(any());
         //When
-        doNothing().when(emailService).send(isA(Mail.class));
         emailScheduler.sendInformationEmail();
         //Then
-        verify(emailScheduler).sendInformationEmail();
+        verify(emailService).send(mailArgumentCaptor.capture());
+        Mail actualMail = mailArgumentCaptor.getValue();
+        assertEquals(expectMail, actualMail);
+
     }
 }
