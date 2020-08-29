@@ -6,7 +6,7 @@ import com.crud.tasks.trello.domain.TrelloList;
 import com.crud.tasks.trello.domain.TrelloListDto;
 import com.crud.tasks.trello.facade.TrelloFacade;
 import com.crud.tasks.trello.mapper.TrelloMapper;
-import com.crud.tasks.trello.service.TrelloService;
+import com.crud.trello.service.TrelloService;
 import com.crud.tasks.trello.validator.TrelloValidator;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;

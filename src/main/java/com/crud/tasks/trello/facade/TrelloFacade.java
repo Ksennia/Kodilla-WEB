@@ -6,7 +6,7 @@ import com.crud.tasks.trello.validator.TrelloCardDto;
 import com.crud.tasks.trello.domain.CreatedTrelloCardDto;
 import com.crud.tasks.trello.domain.TrelloBoard;
 import com.crud.tasks.trello.mapper.TrelloMapper;
-import com.crud.tasks.trello.service.TrelloService;
+import com.crud.trello.service.TrelloService;
 import com.crud.tasks.trello.validator.TrelloValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

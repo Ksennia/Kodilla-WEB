@@ -1,4 +1,4 @@
-package com.crud.tasks.trello.service;
+package com.crud.trello.service;
 
 import com.crud.tasks.config.AdminConfig;
 import com.crud.tasks.domain.Mail;
